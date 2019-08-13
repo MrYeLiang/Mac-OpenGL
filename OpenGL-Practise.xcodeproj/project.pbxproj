@@ -16,6 +16,7 @@
 		2B54A2A522FADB4C00353A2A /* libglfw.3.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B54A2A422FADB4C00353A2A /* libglfw.3.3.dylib */; };
 		2B54A2A722FADB6800353A2A /* glad.c in Sources */ = {isa = PBXBuildFile; fileRef = 2B54A2A622FADB6800353A2A /* glad.c */; };
 		2B54A2A922FADB7D00353A2A /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B54A2A822FADB7D00353A2A /* main.cpp */; };
+		2B58C4B52302B50000213CE8 /* P01_create_window.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B58C4B32302B50000213CE8 /* P01_create_window.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,8 @@
 		2B54A2A422FADB4C00353A2A /* libglfw.3.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libglfw.3.3.dylib; path = ../../../../../usr/local/Cellar/glfw/3.3/lib/libglfw.3.3.dylib; sourceTree = "<group>"; };
 		2B54A2A622FADB6800353A2A /* glad.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = glad.c; path = ../../../../Downloads/glad/src/glad.c; sourceTree = "<group>"; };
 		2B54A2A822FADB7D00353A2A /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		2B58C4B32302B50000213CE8 /* P01_create_window.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = P01_create_window.cpp; sourceTree = "<group>"; };
+		2B58C4B42302B50000213CE8 /* P01_create_window.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = P01_create_window.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +115,8 @@
 				2B54A27A22FAD85B00353A2A /* Info.plist */,
 				2B54A27D22FAD85B00353A2A /* OpenGL_Practise.entitlements */,
 				2B54A2A822FADB7D00353A2A /* main.cpp */,
+				2B58C4B32302B50000213CE8 /* P01_create_window.cpp */,
+				2B58C4B42302B50000213CE8 /* P01_create_window.hpp */,
 			);
 			path = "OpenGL-Practise";
 			sourceTree = "<group>";
@@ -273,6 +278,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B58C4B52302B50000213CE8 /* P01_create_window.cpp in Sources */,
 				2B54A2A922FADB7D00353A2A /* main.cpp in Sources */,
 				2B54A2A722FADB6800353A2A /* glad.c in Sources */,
 			);
