@@ -7,8 +7,12 @@
 //
 #include "P01_create_window.hpp"
 
+#include_next "P02_show_triangle.hpp"
 int main(){
+    //1 显示窗口
+    //show_window();
     
-    show_window();
+    //2 绘制三角形
+    show_triangle();
     return 0;
 }
