@@ -108,32 +108,37 @@ int show_triangle()
     glDeleteShader(vertexShader);
     glDeleteShader(fragmentShader);
     
-    GLfloat vertices[] = {
-        //First triangle
+    GLfloat firstTriangle[] = {
         -0.9f, -0.5f, 0.0f,
         -0.0f, -0.5f, 0.0f,
         -0.45f, 0.5f, 0.0f,
-        
-        //Second triangle
+    };
+    
+    GLfloat secondTriangle[] = {
         0.0f, -0.5f, 0.0f,
         0.9f, -0.5f, 0.0f,
         0.45f, 0.5f, 0.0f
     };
  
     //顶点缓冲对象
-    GLuint VBO, VAO, EBO;
-    glGenVertexArrays(1, &VAO);
-    glGenBuffers(1, &VBO);
+    GLuint VBOs[2], VAOs[2];
+    glGenVertexArrays(2, VAOs);
+    glGenBuffers(2, VBOs);
     
-    glBindVertexArray(VAO);
-    
-    glBindBuffer(GL_ARRAY_BUFFER, VBO);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
-
+    //===============  First Triangle setup  ===================
+    glBindVertexArray(VAOs[0]);
+    glBindBuffer(GL_ARRAY_BUFFER, VBOs[0]);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(firstTriangle), firstTriangle, GL_STATIC_DRAW);
     glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3*sizeof(GLfloat), (GLvoid*)0);
     glEnableVertexAttribArray(0);
+    glBindVertexArray(0);
     
-    glBindBuffer(GL_ARRAY_BUFFER, 0);
+    //===============  Second Triangle setup  ===================
+    glBindVertexArray(VAOs[1]);
+    glBindBuffer(GL_ARRAY_BUFFER, VBOs[1]);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(secondTriangle), secondTriangle, GL_STATIC_DRAW);
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3*sizeof(GLfloat), (GLvoid*)0);
+    glEnableVertexAttribArray(0);
     glBindVertexArray(0);
     
     //线框模式
@@ -146,19 +151,24 @@ int show_triangle()
         glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT);
         
-        //draw first triangle
+        //Active shader(Same shader for both triangle)
         glUseProgram(shaderProgram);
-        glBindVertexArray(VAO);
         
-        glDrawArrays(GL_TRIANGLES, 0, 6);
+        //Draw first triangle using the data from the first VAO
+        glBindVertexArray(VAOs[0]);
+        glDrawArrays(GL_TRIANGLES, 0, 3);
+        
+        //Draw the second triangle using the data from the second VAO
+        glBindVertexArray(VAOs[1]);
+        glDrawArrays(GL_TRIANGLES, 0, 3);
+        
         glBindVertexArray(0);
         
         //swap the screen buffers
         glfwSwapBuffers(window);
     }
-    glDeleteVertexArrays(1, &VAO);
-    glDeleteBuffers(1, &VBO);
-    glDeleteBuffers(1, &EBO);
+    glDeleteVertexArrays(2, VAOs);
+    glDeleteBuffers(2, VBOs);
     
     //Terminate GLFW, clearing any resources allocated by GLFW
     glfwTerminate();
