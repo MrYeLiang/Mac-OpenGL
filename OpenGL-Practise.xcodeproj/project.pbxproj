@@ -11,6 +11,11 @@
 		2B0E6721230D3E600015181B /* shader.vs in Resources */ = {isa = PBXBuildFile; fileRef = 2B0E6720230D3E600015181B /* shader.vs */; };
 		2B0E6727230D43A50015181B /* P03_load_shader_from_file.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B0E6725230D43A50015181B /* P03_load_shader_from_file.cpp */; };
 		2B0E6729230D449D0015181B /* shader.fs in Resources */ = {isa = PBXBuildFile; fileRef = 2B0E6728230D449D0015181B /* shader.fs */; };
+		2B0E6734230D50C10015181B /* P04_texture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B0E6732230D50C10015181B /* P04_texture.cpp */; };
+		2B0E6737230D58A40015181B /* container.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2B0E6736230D58A40015181B /* container.jpg */; };
+		2B0E673C230D5C620015181B /* stb_image.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B0E673A230D5C620015181B /* stb_image.cpp */; };
+		2B0E673E230D5EA50015181B /* texture.vs in Resources */ = {isa = PBXBuildFile; fileRef = 2B0E673D230D5EA50015181B /* texture.vs */; };
+		2B0E6740230D5ECF0015181B /* texture.fs in Resources */ = {isa = PBXBuildFile; fileRef = 2B0E673F230D5ECF0015181B /* texture.fs */; };
 		2B54A27622FAD85B00353A2A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2B54A27522FAD85B00353A2A /* Assets.xcassets */; };
 		2B54A27922FAD85B00353A2A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B54A27722FAD85B00353A2A /* Main.storyboard */; };
 		2B54A28722FAD85B00353A2A /* OpenGL_PractiseTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B54A28622FAD85B00353A2A /* OpenGL_PractiseTests.m */; };
@@ -49,6 +54,13 @@
 		2B0E6725230D43A50015181B /* P03_load_shader_from_file.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = P03_load_shader_from_file.cpp; sourceTree = "<group>"; };
 		2B0E6726230D43A50015181B /* P03_load_shader_from_file.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = P03_load_shader_from_file.hpp; sourceTree = "<group>"; };
 		2B0E6728230D449D0015181B /* shader.fs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = shader.fs; sourceTree = "<group>"; };
+		2B0E6732230D50C10015181B /* P04_texture.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = P04_texture.cpp; sourceTree = "<group>"; };
+		2B0E6733230D50C10015181B /* P04_texture.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = P04_texture.hpp; sourceTree = "<group>"; };
+		2B0E6736230D58A40015181B /* container.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = container.jpg; path = ../../../../container.jpg; sourceTree = "<group>"; };
+		2B0E673A230D5C620015181B /* stb_image.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = stb_image.cpp; sourceTree = "<group>"; };
+		2B0E673B230D5C620015181B /* stb_image.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = stb_image.hpp; sourceTree = "<group>"; };
+		2B0E673D230D5EA50015181B /* texture.vs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = texture.vs; sourceTree = "<group>"; };
+		2B0E673F230D5ECF0015181B /* texture.fs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = texture.fs; sourceTree = "<group>"; };
 		2B54A26C22FAD85A00353A2A /* OpenGL-Practise.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "OpenGL-Practise.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B54A27522FAD85B00353A2A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2B54A27822FAD85B00353A2A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -102,6 +114,9 @@
 		2B0E672A230D44BA0015181B /* P03_glsl */ = {
 			isa = PBXGroup;
 			children = (
+				2B0E6724230D3F5F0015181B /* shader.h */,
+				2B0E6728230D449D0015181B /* shader.fs */,
+				2B0E6720230D3E600015181B /* shader.vs */,
 				2B0E6719230CEA8F0015181B /* P03_glsl.cpp */,
 				2B0E671A230CEA8F0015181B /* P03_glsl.hpp */,
 				2B0E6725230D43A50015181B /* P03_load_shader_from_file.cpp */,
@@ -126,6 +141,20 @@
 				2B58C4B42302B50000213CE8 /* P01_create_window.hpp */,
 			);
 			path = P01_window;
+			sourceTree = "<group>";
+		};
+		2B0E6731230D50850015181B /* P04_texture */ = {
+			isa = PBXGroup;
+			children = (
+				2B0E6736230D58A40015181B /* container.jpg */,
+				2B0E6732230D50C10015181B /* P04_texture.cpp */,
+				2B0E6733230D50C10015181B /* P04_texture.hpp */,
+				2B0E673A230D5C620015181B /* stb_image.cpp */,
+				2B0E673B230D5C620015181B /* stb_image.hpp */,
+				2B0E673D230D5EA50015181B /* texture.vs */,
+				2B0E673F230D5ECF0015181B /* texture.fs */,
+			);
+			path = P04_texture;
 			sourceTree = "<group>";
 		};
 		2B54A26322FAD85A00353A2A = {
@@ -156,10 +185,8 @@
 				2B0E672C230D49B90015181B /* P01_window */,
 				2B0E672B230D49A80015181B /* P02_triangle */,
 				2B0E672A230D44BA0015181B /* P03_glsl */,
+				2B0E6731230D50850015181B /* P04_texture */,
 				2B54A2A622FADB6800353A2A /* glad.c */,
-				2B0E6724230D3F5F0015181B /* shader.h */,
-				2B0E6728230D449D0015181B /* shader.fs */,
-				2B0E6720230D3E600015181B /* shader.vs */,
 				2B54A27522FAD85B00353A2A /* Assets.xcassets */,
 				2B54A27722FAD85B00353A2A /* Main.storyboard */,
 				2B54A27A22FAD85B00353A2A /* Info.plist */,
@@ -301,7 +328,10 @@
 			files = (
 				2B54A27622FAD85B00353A2A /* Assets.xcassets in Resources */,
 				2B0E6721230D3E600015181B /* shader.vs in Resources */,
+				2B0E673E230D5EA50015181B /* texture.vs in Resources */,
 				2B54A27922FAD85B00353A2A /* Main.storyboard in Resources */,
+				2B0E6737230D58A40015181B /* container.jpg in Resources */,
+				2B0E6740230D5ECF0015181B /* texture.fs in Resources */,
 				2B0E6729230D449D0015181B /* shader.fs in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -328,10 +358,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				2B58C4B52302B50000213CE8 /* P01_create_window.cpp in Sources */,
+				2B0E673C230D5C620015181B /* stb_image.cpp in Sources */,
 				2B0E671B230CEA8F0015181B /* P03_glsl.cpp in Sources */,
 				2B58C4BE2302B9AE00213CE8 /* P02_show_triangle.cpp in Sources */,
 				2B54A2A922FADB7D00353A2A /* main.cpp in Sources */,
 				2B0E6727230D43A50015181B /* P03_load_shader_from_file.cpp in Sources */,
+				2B0E6734230D50C10015181B /* P04_texture.cpp in Sources */,
 				2B54A2A722FADB6800353A2A /* glad.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
