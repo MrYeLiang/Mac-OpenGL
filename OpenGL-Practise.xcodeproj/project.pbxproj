@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		2B0E671B230CEA8F0015181B /* P03_glsl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B0E6719230CEA8F0015181B /* P03_glsl.cpp */; };
+		2B0E6721230D3E600015181B /* shader.vs in Resources */ = {isa = PBXBuildFile; fileRef = 2B0E6720230D3E600015181B /* shader.vs */; };
+		2B0E6727230D43A50015181B /* P03_load_shader_from_file.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B0E6725230D43A50015181B /* P03_load_shader_from_file.cpp */; };
+		2B0E6729230D449D0015181B /* shader.fs in Resources */ = {isa = PBXBuildFile; fileRef = 2B0E6728230D449D0015181B /* shader.fs */; };
 		2B54A27622FAD85B00353A2A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2B54A27522FAD85B00353A2A /* Assets.xcassets */; };
 		2B54A27922FAD85B00353A2A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B54A27722FAD85B00353A2A /* Main.storyboard */; };
 		2B54A28722FAD85B00353A2A /* OpenGL_PractiseTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B54A28622FAD85B00353A2A /* OpenGL_PractiseTests.m */; };
@@ -41,6 +44,11 @@
 /* Begin PBXFileReference section */
 		2B0E6719230CEA8F0015181B /* P03_glsl.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = P03_glsl.cpp; sourceTree = "<group>"; };
 		2B0E671A230CEA8F0015181B /* P03_glsl.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = P03_glsl.hpp; sourceTree = "<group>"; };
+		2B0E6720230D3E600015181B /* shader.vs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = shader.vs; sourceTree = "<group>"; };
+		2B0E6724230D3F5F0015181B /* shader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = shader.h; sourceTree = "<group>"; };
+		2B0E6725230D43A50015181B /* P03_load_shader_from_file.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = P03_load_shader_from_file.cpp; sourceTree = "<group>"; };
+		2B0E6726230D43A50015181B /* P03_load_shader_from_file.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = P03_load_shader_from_file.hpp; sourceTree = "<group>"; };
+		2B0E6728230D449D0015181B /* shader.fs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = shader.fs; sourceTree = "<group>"; };
 		2B54A26C22FAD85A00353A2A /* OpenGL-Practise.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "OpenGL-Practise.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B54A27522FAD85B00353A2A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2B54A27822FAD85B00353A2A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -92,6 +100,35 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2B0E672A230D44BA0015181B /* P03_glsl */ = {
+			isa = PBXGroup;
+			children = (
+				2B0E6719230CEA8F0015181B /* P03_glsl.cpp */,
+				2B0E671A230CEA8F0015181B /* P03_glsl.hpp */,
+				2B0E6725230D43A50015181B /* P03_load_shader_from_file.cpp */,
+				2B0E6726230D43A50015181B /* P03_load_shader_from_file.hpp */,
+			);
+			path = P03_glsl;
+			sourceTree = "<group>";
+		};
+		2B0E672B230D49A80015181B /* P02_triangle */ = {
+			isa = PBXGroup;
+			children = (
+				2B58C4BC2302B9AE00213CE8 /* P02_show_triangle.cpp */,
+				2B58C4BD2302B9AE00213CE8 /* P02_show_triangle.hpp */,
+			);
+			path = P02_triangle;
+			sourceTree = "<group>";
+		};
+		2B0E672C230D49B90015181B /* P01_window */ = {
+			isa = PBXGroup;
+			children = (
+				2B58C4B32302B50000213CE8 /* P01_create_window.cpp */,
+				2B58C4B42302B50000213CE8 /* P01_create_window.hpp */,
+			);
+			path = P01_window;
+			sourceTree = "<group>";
+		};
 		2B54A26322FAD85A00353A2A = {
 			isa = PBXGroup;
 			children = (
@@ -117,18 +154,18 @@
 		2B54A26E22FAD85A00353A2A /* OpenGL-Practise */ = {
 			isa = PBXGroup;
 			children = (
+				2B54A2A822FADB7D00353A2A /* main.cpp */,
+				2B0E672C230D49B90015181B /* P01_window */,
+				2B0E672B230D49A80015181B /* P02_triangle */,
+				2B0E672A230D44BA0015181B /* P03_glsl */,
 				2B54A2A622FADB6800353A2A /* glad.c */,
+				2B0E6724230D3F5F0015181B /* shader.h */,
+				2B0E6728230D449D0015181B /* shader.fs */,
+				2B0E6720230D3E600015181B /* shader.vs */,
 				2B54A27522FAD85B00353A2A /* Assets.xcassets */,
 				2B54A27722FAD85B00353A2A /* Main.storyboard */,
 				2B54A27A22FAD85B00353A2A /* Info.plist */,
 				2B54A27D22FAD85B00353A2A /* OpenGL_Practise.entitlements */,
-				2B54A2A822FADB7D00353A2A /* main.cpp */,
-				2B58C4B32302B50000213CE8 /* P01_create_window.cpp */,
-				2B58C4B42302B50000213CE8 /* P01_create_window.hpp */,
-				2B58C4BC2302B9AE00213CE8 /* P02_show_triangle.cpp */,
-				2B58C4BD2302B9AE00213CE8 /* P02_show_triangle.hpp */,
-				2B0E6719230CEA8F0015181B /* P03_glsl.cpp */,
-				2B0E671A230CEA8F0015181B /* P03_glsl.hpp */,
 			);
 			path = "OpenGL-Practise";
 			sourceTree = "<group>";
@@ -265,7 +302,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				2B54A27622FAD85B00353A2A /* Assets.xcassets in Resources */,
+				2B0E6721230D3E600015181B /* shader.vs in Resources */,
 				2B54A27922FAD85B00353A2A /* Main.storyboard in Resources */,
+				2B0E6729230D449D0015181B /* shader.fs in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -294,6 +333,7 @@
 				2B0E671B230CEA8F0015181B /* P03_glsl.cpp in Sources */,
 				2B58C4BE2302B9AE00213CE8 /* P02_show_triangle.cpp in Sources */,
 				2B54A2A922FADB7D00353A2A /* main.cpp in Sources */,
+				2B0E6727230D43A50015181B /* P03_load_shader_from_file.cpp in Sources */,
 				2B54A2A722FADB6800353A2A /* glad.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

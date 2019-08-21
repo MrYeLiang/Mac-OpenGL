@@ -8,6 +8,7 @@
 #include "P01_window/P01_create_window.hpp"
 #include "P02_triangle/P02_show_triangle.hpp"
 #include "P03_glsl/P03_glsl.hpp"
+#include "P03_glsl/P03_load_shader_from_file.hpp"
 int main(){
     //1 显示窗口
     //show_window();
@@ -16,6 +17,7 @@ int main(){
     //show_triangle();
     
     //3 动态设置颜色
-    dynamic_set_color();
+    //dynamic_set_color();
+    load_shader_from_file();
     return 0;
 }
