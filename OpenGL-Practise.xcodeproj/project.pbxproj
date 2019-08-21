@@ -67,7 +67,6 @@
 		2B54A2A822FADB7D00353A2A /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		2B58C4B32302B50000213CE8 /* P01_create_window.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = P01_create_window.cpp; sourceTree = "<group>"; };
 		2B58C4B42302B50000213CE8 /* P01_create_window.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = P01_create_window.hpp; sourceTree = "<group>"; };
-		2B58C4BA2302B99000213CE8 /* P02_show_triangle.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = P02_show_triangle.hpp; sourceTree = "<group>"; };
 		2B58C4BC2302B9AE00213CE8 /* P02_show_triangle.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = P02_show_triangle.cpp; sourceTree = "<group>"; };
 		2B58C4BD2302B9AE00213CE8 /* P02_show_triangle.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = P02_show_triangle.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -132,7 +131,6 @@
 		2B54A26322FAD85A00353A2A = {
 			isa = PBXGroup;
 			children = (
-				2B58C4BA2302B99000213CE8 /* P02_show_triangle.hpp */,
 				2B54A26E22FAD85A00353A2A /* OpenGL-Practise */,
 				2B54A28522FAD85B00353A2A /* OpenGL-PractiseTests */,
 				2B54A29022FAD85B00353A2A /* OpenGL-PractiseUITests */,
