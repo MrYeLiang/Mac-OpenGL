@@ -9,6 +9,8 @@
 #include "P02_triangle/P02_show_triangle.hpp"
 #include "P03_glsl/P03_glsl.hpp"
 #include "P03_glsl/P03_load_shader_from_file.hpp"
+#include "P04_texture/P04_texture.hpp"
+
 int main(){
     //1 显示窗口
     //show_window();
@@ -18,6 +20,9 @@ int main(){
     
     //3 动态设置颜色
     //dynamic_set_color();
-    load_shader_from_file();
+    //load_shader_from_file();
+    
+    //4显示纹理
+    show_image();
     return 0;
 }
