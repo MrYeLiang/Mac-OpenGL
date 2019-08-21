@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2B0E671B230CEA8F0015181B /* P03_glsl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B0E6719230CEA8F0015181B /* P03_glsl.cpp */; };
 		2B54A27622FAD85B00353A2A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2B54A27522FAD85B00353A2A /* Assets.xcassets */; };
 		2B54A27922FAD85B00353A2A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B54A27722FAD85B00353A2A /* Main.storyboard */; };
 		2B54A28722FAD85B00353A2A /* OpenGL_PractiseTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B54A28622FAD85B00353A2A /* OpenGL_PractiseTests.m */; };
@@ -38,6 +39,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2B0E6719230CEA8F0015181B /* P03_glsl.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = P03_glsl.cpp; sourceTree = "<group>"; };
+		2B0E671A230CEA8F0015181B /* P03_glsl.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = P03_glsl.hpp; sourceTree = "<group>"; };
 		2B54A26C22FAD85A00353A2A /* OpenGL-Practise.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "OpenGL-Practise.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B54A27522FAD85B00353A2A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2B54A27822FAD85B00353A2A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -124,6 +127,8 @@
 				2B58C4B42302B50000213CE8 /* P01_create_window.hpp */,
 				2B58C4BC2302B9AE00213CE8 /* P02_show_triangle.cpp */,
 				2B58C4BD2302B9AE00213CE8 /* P02_show_triangle.hpp */,
+				2B0E6719230CEA8F0015181B /* P03_glsl.cpp */,
+				2B0E671A230CEA8F0015181B /* P03_glsl.hpp */,
 			);
 			path = "OpenGL-Practise";
 			sourceTree = "<group>";
@@ -286,6 +291,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2B58C4B52302B50000213CE8 /* P01_create_window.cpp in Sources */,
+				2B0E671B230CEA8F0015181B /* P03_glsl.cpp in Sources */,
 				2B58C4BE2302B9AE00213CE8 /* P02_show_triangle.cpp in Sources */,
 				2B54A2A922FADB7D00353A2A /* main.cpp in Sources */,
 				2B54A2A722FADB6800353A2A /* glad.c in Sources */,
