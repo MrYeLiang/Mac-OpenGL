@@ -15,13 +15,9 @@
 #include <cmath>
 #include "P03_glsl.hpp"
 
-void frame_buffer_size_callback(GLFWwindow* window, int width, int height);
+void b_frame_buffer_size_callback(GLFWwindow* window, int width, int height);
 
-void processInput(GLFWwindow * window);
-
-//settings
-const unsigned int SCR_WIDTH = 800;
-const unsigned int SCR_HEIGHT = 600;
+void b_processInput(GLFWwindow * window);
 
 using namespace std;
 
@@ -64,7 +60,7 @@ int dynamic_set_color()
     }
     
     glfwMakeContextCurrent(window);
-    glfwSetFramebufferSizeCallback(window, frame_buffer_size_callback);
+    glfwSetFramebufferSizeCallback(window, b_frame_buffer_size_callback);
     
     if(!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress)){
         cout << "Failed to initialize GLAD" << endl;
@@ -142,7 +138,7 @@ int dynamic_set_color()
     
     glUseProgram(shaderProgram);
     while(!glfwWindowShouldClose(window)){
-        processInput(window);
+        b_processInput(window);
         
         glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT);
@@ -165,12 +161,12 @@ int dynamic_set_color()
     
 }
 
-void frame_buffer_size_callback(GLFWwindow* window, int width, int height)
+void b_frame_buffer_size_callback(GLFWwindow* window, int width, int height)
 {
     glViewport(0, 0, width, height);
 }
 
-void processInput(GLFWwindow *window)
+void b_processInput(GLFWwindow *window)
 {
     if(glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS){
         glfwSetWindowShouldClose(window, true);

@@ -18,8 +18,8 @@ void a_framebuffer_size_callback(GLFWwindow* window, int width, int height);
 void a_processInput(GLFWwindow *window);
 
 // settings
-const unsigned int SCR_WIDTH = 800;
-const unsigned int SCR_HEIGHT = 600;
+const unsigned int I_SCR_WIDTH = 800;
+const unsigned int I_SCR_HEIGHT = 600;
 int load_shader_from_file()
 {
     // glfw: initialize and configure
@@ -35,7 +35,7 @@ int load_shader_from_file()
     
     // glfw window creation
     // --------------------
-    GLFWwindow* window = glfwCreateWindow(SCR_WIDTH, SCR_HEIGHT, "LearnOpenGL", NULL, NULL);
+    GLFWwindow* window = glfwCreateWindow(I_SCR_WIDTH, I_SCR_HEIGHT, "LearnOpenGL", NULL, NULL);
     if (window == NULL)
     {
         std::cout << "Failed to create GLFW window" << std::endl;
