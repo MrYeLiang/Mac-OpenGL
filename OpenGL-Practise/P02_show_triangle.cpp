@@ -29,13 +29,22 @@ const GLchar* vertexShaderSource =
         "}\0";
 
 //片段着色器
-const GLchar* fragmentShaderSource =
+const GLchar* fragmentShader1Source =
         "#version 330 core\n"
         "out vec4 color;\n"
         "void main()\n"
         "{\n"
         "color=vec4(1.0f, 0.5f, 0.2f, 1.0f);\n"
         "}\n\0";
+
+//片段着色器
+const GLchar* fragmentShader2Source =
+    "#version 330 core\n"
+    "out vec4 color;\n"
+    "void main()\n"
+    "{\n"
+    "color=vec4(1.0f, 1.0f, 0.0f, 1.0f);\n" //yellow color
+    "}\n\0";
 
 
 int show_triangle()
@@ -81,54 +90,82 @@ int show_triangle()
         return -1;
     }
     
-    //创建片元着色器
-    GLuint fragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
-    glShaderSource(fragmentShader, 1, &fragmentShaderSource, NULL);
-    glCompileShader(fragmentShader);
+    //创建片元着色器-->橘黄色
+    GLuint fragmentShaderOrange = glCreateShader(GL_FRAGMENT_SHADER);
+    glShaderSource(fragmentShaderOrange, 1, &fragmentShader1Source, NULL);
+    glCompileShader(fragmentShaderOrange);
     
-    glGetShaderiv(fragmentShader, GL_COMPILE_STATUS, &success);
+    glGetShaderiv(fragmentShaderOrange, GL_COMPILE_STATUS, &success);
     if(!success){
-        glGetShaderInfoLog(fragmentShader, 512, NULL, infoLog);
+        glGetShaderInfoLog(fragmentShaderOrange, 512, NULL, infoLog);
+        cout << "fragmentShader compile Error info:" << infoLog << endl;
+        return -1;
+    }
+    
+    //创建片元着色器-->黄色
+    GLuint fragmentShaderYellow = glCreateShader(GL_FRAGMENT_SHADER);
+    glShaderSource(fragmentShaderYellow, 1, &fragmentShader2Source, NULL);
+    glCompileShader(fragmentShaderYellow);
+    
+    glGetShaderiv(fragmentShaderYellow, GL_COMPILE_STATUS, &success);
+    if(!success){
+        glGetShaderInfoLog(fragmentShaderYellow, 512, NULL, infoLog);
         cout << "fragmentShader compile Error info:" << infoLog << endl;
         return -1;
     }
     
     //着色器程序
-    GLuint shaderProgram = glCreateProgram();
-    glAttachShader(shaderProgram, vertexShader);
-    glAttachShader(shaderProgram, fragmentShader);
-    glLinkProgram(shaderProgram);
+    GLuint shaderProgramOrange = glCreateProgram();
+    glAttachShader(shaderProgramOrange, vertexShader);
+    glAttachShader(shaderProgramOrange, fragmentShaderOrange);
+    glLinkProgram(shaderProgramOrange);
     
-    glGetProgramiv(shaderProgram, GL_LINK_STATUS, &success);
+    GLuint shaderProgramYellow = glCreateProgram();
+    glAttachShader(shaderProgramYellow, vertexShader);
+    glAttachShader(shaderProgramYellow, fragmentShaderYellow);
+    glLinkProgram(shaderProgramYellow);
+    
+    glGetProgramiv(shaderProgramYellow, GL_LINK_STATUS, &success);
     if(!success){
-        glGetProgramInfoLog(shaderProgram, 512, NULL, infoLog);
+        glGetProgramInfoLog(shaderProgramYellow, 512, NULL, infoLog);
         return -1;
     }
-   
-    glDeleteShader(vertexShader);
-    glDeleteShader(fragmentShader);
     
-    GLfloat vertices[] = {
-        -0.5f, -0.5f, 0.0f, //left
-        0.5f,  -0.5f, 0.0f, //Right
-        0.0f,  0.5f, 0.0f   //Top
+    GLfloat firstTriangle[] = {
+        -0.9f, -0.5f, 0.0f,
+        -0.0f, -0.5f, 0.0f,
+        -0.45f, 0.5f, 0.0f,
     };
     
+    GLfloat secondTriangle[] = {
+        0.0f, -0.5f, 0.0f,
+        0.9f, -0.5f, 0.0f,
+        0.45f, 0.5f, 0.0f
+    };
+ 
     //顶点缓冲对象
-    GLuint VBO, VAO;
-    glGenVertexArrays(1, &VAO);
-    glGenBuffers(1, &VBO);
+    GLuint VBOs[2], VAOs[2];
+    glGenVertexArrays(2, VAOs);
+    glGenBuffers(2, VBOs);
     
-    glBindVertexArray(VAO);
-    
-    glBindBuffer(GL_ARRAY_BUFFER, VBO);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
-
+    //===============  First Triangle setup  ===================
+    glBindVertexArray(VAOs[0]);
+    glBindBuffer(GL_ARRAY_BUFFER, VBOs[0]);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(firstTriangle), firstTriangle, GL_STATIC_DRAW);
     glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3*sizeof(GLfloat), (GLvoid*)0);
     glEnableVertexAttribArray(0);
-    
-    glBindBuffer(GL_ARRAY_BUFFER, 0);
     glBindVertexArray(0);
+    
+    //===============  Second Triangle setup  ===================
+    glBindVertexArray(VAOs[1]);
+    glBindBuffer(GL_ARRAY_BUFFER, VBOs[1]);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(secondTriangle), secondTriangle, GL_STATIC_DRAW);
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3*sizeof(GLfloat), (GLvoid*)0);
+    glEnableVertexAttribArray(0);
+    glBindVertexArray(0);
+    
+    //线框模式
+    //glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
     
     while (!glfwWindowShouldClose(window)) {
         glfwPollEvents();
@@ -137,17 +174,25 @@ int show_triangle()
         glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT);
         
-        //draw first triangle
-        glUseProgram(shaderProgram);
-        glBindVertexArray(VAO);
+        //Active shader(Same shader for both triangle)
+        glUseProgram(shaderProgramOrange);
+        //Draw first triangle using the data from the first VAO
+        glBindVertexArray(VAOs[0]);
         glDrawArrays(GL_TRIANGLES, 0, 3);
+        
+        //Active shader(Same shader for both triangle)
+        glUseProgram(shaderProgramYellow);
+        //Draw the second triangle using the data from the second VAO
+        glBindVertexArray(VAOs[1]);
+        glDrawArrays(GL_TRIANGLES, 0, 3);
+        
         glBindVertexArray(0);
         
         //swap the screen buffers
         glfwSwapBuffers(window);
     }
-    glDeleteVertexArrays(1, &VAO);
-    glDeleteBuffers(1, &VBO);
+    glDeleteVertexArrays(2, VAOs);
+    glDeleteBuffers(2, VBOs);
     
     //Terminate GLFW, clearing any resources allocated by GLFW
     glfwTerminate();
